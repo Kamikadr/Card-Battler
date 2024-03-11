@@ -1,13 +1,11 @@
-﻿using UI;
-
-namespace Core.Events
+﻿namespace Core.Events
 {
-    public struct AttackEvent
+    public struct PreAttackEvent
     {
         public IHeroListenable Target;
         public IHeroListenable Source;
 
-        public AttackEvent(IHeroListenable source, IHeroListenable target)
+        public PreAttackEvent(IHeroListenable source, IHeroListenable target)
         {
             Target = target;
             Source = source;

@@ -2,9 +2,15 @@
 
 namespace Core.Events
 {
-    public class DealDamageEvent
+    public struct DealDamageEvent
     {
-        public HeroView Target;
+        public IHeroListenable Target;
         public int Damage;
+
+        public DealDamageEvent(int damage, IHeroListenable target)
+        {
+            Damage = damage;
+            Target = target;
+        }
     }
 }

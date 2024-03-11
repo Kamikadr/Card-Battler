@@ -10,7 +10,12 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(AttackEvent evt)
         {
-            throw new System.NotImplementedException();
+            EventBus.RaiseEvent(new PreAttackEvent(evt.Source, evt.Target));
+
+            var damage = evt.Source.Value.GetEntityComponent<DamageComponent>();
+            EventBus.RaiseEvent(new DealDamageEvent(damage.Value, evt.Target));
+            
+            EventBus.RaiseEvent(new PostAttackEvent(evt.Source, evt.Target));
         }
     }
 }

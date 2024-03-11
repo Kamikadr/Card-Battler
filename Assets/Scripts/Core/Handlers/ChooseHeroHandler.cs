@@ -10,7 +10,7 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(ChooseHeroEvent evt)
         {
-            //evt.HeroList
+            
         }
     }
 }

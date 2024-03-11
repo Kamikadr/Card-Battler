@@ -10,7 +10,9 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(DealDamageEvent evt)
         {
-            throw new System.NotImplementedException();
+            var health = evt.Target.Value.GetEntityComponent<HealthComponent>();
+
+            health.Value -= evt.Damage;
         }
     }
 }
