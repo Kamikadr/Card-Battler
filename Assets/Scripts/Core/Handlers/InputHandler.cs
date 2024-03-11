@@ -16,12 +16,12 @@ namespace Core.Handlers
         protected override void OnEventHandle(ChooseEnemyHeroEvent evt)
         {
             _currentSource = evt.Target;
-            _playerListenable.EnemyHeroList.OnHeroClicked += OnChooseTarget;
+            //_playerListenable.EnemyHeroList.OnHeroClicked += OnChooseTarget;
         }
 
         private void OnChooseTarget(HeroView obj)
         {
-            EventBus.RaiseEvent(new AttackEvent{Target = obj, Source = _currentSource});
+            //EventBus.RaiseEvent(new AttackEvent{Target = obj, Source = _currentSource});
             _currentSource = null;
         }
     }

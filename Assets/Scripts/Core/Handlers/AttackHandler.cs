@@ -1,4 +1,6 @@
-﻿using Core.Events;
+﻿using Core.Components;
+using Core.Effects;
+using Core.Events;
 
 namespace Core.Handlers
 {
@@ -10,12 +12,17 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(AttackEvent evt)
         {
-            EventBus.RaiseEvent(new PreAttackEvent(evt.Source, evt.Target));
-
-            var damage = evt.Source.Value.GetEntityComponent<DamageComponent>();
-            EventBus.RaiseEvent(new DealDamageEvent(damage.Value, evt.Target));
             
-            EventBus.RaiseEvent(new PostAttackEvent(evt.Source, evt.Target));
+
+            var attackEffects = evt.Source.Value.GetEffects<AttackEffect>();
+            foreach (var effect in attackEffects)
+            {
+                effect.Source = evt.Source.Value;
+                effect.Target = evt.Target.Value;
+                EventBus.RaiseEvent(effect);
+            }
+
+            
         }
     }
 }

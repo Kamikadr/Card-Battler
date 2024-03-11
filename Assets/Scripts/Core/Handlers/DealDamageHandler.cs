@@ -1,4 +1,5 @@
-﻿using Core.Events;
+﻿using Core.Effects;
+using Core.Events;
 
 namespace Core.Handlers
 {
@@ -10,9 +11,18 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(DealDamageEvent evt)
         {
-            var health = evt.Target.Value.GetEntityComponent<HealthComponent>();
-
-            health.Value -= evt.Damage;
+            if (evt.Target.TryGetEffects<DamageEvasionEffect>(out var evasionEffects))
+            {
+                foreach (var effect in evasionEffects)
+                {
+                    EventBus.RaiseEvent(effect);
+                }
+            }
+            else
+            {
+                var health = evt.Target.GetEntityComponent<HealthComponent>();
+                health.Value -= evt.Damage;
+            }
         }
     }
 }
