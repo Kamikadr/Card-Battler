@@ -1,23 +1,28 @@
-﻿using Core.Tasks;
+﻿using System;
+using Core.Tasks;
+using VContainer;
+using VContainer.Unity;
 
 namespace Core.Pipeline
 {
-    public class LogicPipelineInstaller
+    public class LogicPipelineInstaller: IInitializable
     {
         private readonly LogicPipeline _pipeline;
-        
-        public LogicPipelineInstaller(LogicPipeline pipeline)
+        private readonly IObjectResolver _objectResolver;
+
+        public LogicPipelineInstaller(LogicPipeline pipeline, IObjectResolver objectResolver)
         {
             _pipeline = pipeline;
+            _objectResolver = objectResolver;
         }
 
-        public void Install()
+        void IInitializable.Initialize()
         {
-            _pipeline.AddTask(new StartTurnTask());
-            _pipeline.AddTask(new PlayerTask());
-            _pipeline.AddTask(new EndTurnTask());
-            _pipeline.AddTask(new SwitchPlayerTask());
-            _pipeline.AddTask(new FinishGameTask());
+            _pipeline.AddTask(_objectResolver.Resolve<StartTurnTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<PlayerTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<EndTurnTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<SwitchPlayerTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<FinishGameTask>());
         }
     }
 }

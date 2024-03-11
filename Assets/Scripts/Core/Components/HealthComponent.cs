@@ -1,7 +1,21 @@
-﻿namespace Core.Handlers
+﻿using Core.Components;
+
+namespace Core.Handlers
 {
-    public class HealthComponent
+    public class HealthComponent: IComponent
     {
-        public int Value;
+        private int _maxHealth;
+        public int currentHealth;
+
+        public HealthComponent(int maxHp)
+        {
+            _maxHealth = maxHp;
+            currentHealth = maxHp;
+        }
+
+        public void RefreshComponent()
+        {
+            currentHealth = _maxHealth;
+        }
     }
 }

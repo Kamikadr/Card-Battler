@@ -5,19 +5,20 @@ using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using VContainer.Unity;
 
 namespace Core
 {
     public sealed class HeroButtonListener: IDisposable
     {
-        private readonly IEnumerable<HeroListView> _heroes;
-        private readonly Dictionary<HeroView, HeroEntity> _heroMap;
+        private readonly List<HeroListView> _heroes = new();
+        private readonly Dictionary<HeroView, HeroEntity> _heroMap = new();
         public event Action<HeroEntity> OnEntityClick;
 
-        public HeroButtonListener(IEnumerable<HeroListView> heroes)
+        public HeroButtonListener(UIService uiService)
         {
-            _heroes = heroes;
-            _heroMap = new Dictionary<HeroView, HeroEntity>();
+            _heroes.Add(uiService.GetBluePlayer());
+            _heroes.Add(uiService.GetRedPlayer());
 
             foreach (var hero in _heroes)
             {

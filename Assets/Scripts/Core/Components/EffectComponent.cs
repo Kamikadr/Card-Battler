@@ -32,21 +32,4 @@ namespace Core.Components
     {
         
     }
-
-    public struct AfterAttackEffect: IEffect
-    {
-        
-    }
-    public struct OnAttackEffect: IEffect
-    {
-        
-    }
-    public struct EndTurnEffect: IEffect
-    {
-        
-    }
-    public struct OnTakeDamageEffect: IEffect
-    {
-        
-    }
 }

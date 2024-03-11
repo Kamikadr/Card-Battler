@@ -21,7 +21,7 @@ namespace Core.Handlers
             else
             {
                 var health = evt.Target.GetEntityComponent<HealthComponent>();
-                health.Value -= evt.Damage;
+                health.currentHealth -= evt.Damage;
             }
         }
     }

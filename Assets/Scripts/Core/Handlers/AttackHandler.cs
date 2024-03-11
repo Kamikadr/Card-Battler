@@ -12,8 +12,6 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(AttackEvent evt)
         {
-            
-
             var attackEffects = evt.Source.Value.GetEffects<AttackEffect>();
             foreach (var effect in attackEffects)
             {
@@ -21,8 +19,6 @@ namespace Core.Handlers
                 effect.Target = evt.Target.Value;
                 EventBus.RaiseEvent(effect);
             }
-
-            
         }
     }
 }

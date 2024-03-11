@@ -12,12 +12,12 @@ namespace UI
 
         public HeroListView GetBluePlayer()
         {
-            return this.bluePlayer;
+            return bluePlayer;
         }
 
         public HeroListView GetRedPlayer()
         {
-            return this.redPlayer;
+            return redPlayer;
         }
     }
 }
