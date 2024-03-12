@@ -1,9 +1,15 @@
-﻿using UI;
+﻿using Core.Components;
+using UI;
 
 namespace Core
 {
-    public class HeroViewComponent
+    public class HeroViewComponent: IComponent
     {
-        public HeroView Value;
+        public HeroView Value { get; private set; }
+
+        public HeroViewComponent(HeroView view)
+        {
+            Value = view;
+        }
     }
 }

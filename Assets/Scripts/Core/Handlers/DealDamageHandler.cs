@@ -22,7 +22,21 @@ namespace Core.Handlers
             {
                 var health = evt.Target.GetEntityComponent<HealthComponent>();
                 health.currentHealth -= evt.Damage;
+                if (health.currentHealth <= 0)
+                {
+                    EventBus.RaiseEvent(new DeathEvent(evt.Target));
+                }
             }
+        }
+    }
+
+    public struct DeathEvent
+    {
+        public readonly HeroEntity target;
+
+        public DeathEvent(HeroEntity target)
+        {
+            this.target = target;
         }
     }
 }

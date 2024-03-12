@@ -1,24 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Core
 {
     public class CharacterEntityContainer
     {
         private int _currentIndex;
-        private readonly HeroEntity[] _heroEntities;
+        private readonly BaseHeroEntity[] _heroEntities;
 
-        public CharacterEntityContainer(HeroEntity[] heroEntities)
+        public CharacterEntityContainer(BaseHeroEntity[] heroEntities)
         {
             _heroEntities = heroEntities;
         }
 
-        public HeroEntity GetNext()
+        public BaseHeroEntity GetNext()
         {
             _currentIndex %= _heroEntities.Length;
             return _heroEntities[_currentIndex++];
         }
 
-        public HeroEntity GetByIndex(int index)
+        public BaseHeroEntity GetByIndex(int index)
         {
             if (index < 0 || index >= _heroEntities.Length)
             {
@@ -31,6 +32,11 @@ namespace Core
         public int GetCount()
         {
             return _heroEntities.Length;
+        }
+
+        public IReadOnlyList<BaseHeroEntity> GetAll()
+        {
+            return _heroEntities;
         }
     }
 }

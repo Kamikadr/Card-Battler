@@ -4,7 +4,7 @@ namespace Core.Handlers
 {
     public class HealthComponent: IComponent
     {
-        private int _maxHealth;
+        private readonly int _maxHealth;
         public int currentHealth;
 
         public HealthComponent(int maxHp)

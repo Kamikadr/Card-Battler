@@ -1,10 +1,15 @@
-﻿namespace Core.Tasks
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
+
+namespace Core.Tasks
 {
     public class EndTurnTask: BaseTask
     {
-        protected override void OnRun()
+        protected override UniTask OnRun()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("End turn");
+            Finish();
+            return UniTask.CompletedTask;
         }
     }
 }

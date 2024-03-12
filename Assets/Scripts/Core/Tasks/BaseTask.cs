@@ -1,18 +1,30 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 
 namespace Core.Tasks
 {
     public abstract class BaseTask
     {
-        private Action _callback;
+        private event Action Callback;
 
-        public void Run(Action callback = default)
+        public async UniTaskVoid Run(Action callback = default)
         {
-            _callback = callback;
-            OnRun();
+            Callback = callback;
+            await OnRun();
         }
 
-        protected abstract void OnRun();
+        protected abstract UniTask OnRun();
+
+        protected void Finish()
+        {
+            Callback?.Invoke();
+            OnFinished();
+        }
+
+        protected virtual void OnFinished()
+        {
+        }
+        
         
     }
 }

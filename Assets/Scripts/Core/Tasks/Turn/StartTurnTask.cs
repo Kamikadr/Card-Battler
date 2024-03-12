@@ -1,4 +1,6 @@
 ﻿using Core.Effects;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Core.Tasks
 {
@@ -14,8 +16,9 @@ namespace Core.Tasks
             _currentPlayer = currentPlayer;
             _currentHero = currentHero;
         }
-        protected override void OnRun()
+        protected override UniTask OnRun()
         {
+            Debug.Log("Start Turn");
             var hero = _currentPlayer.FriendHeroList.GetNext();
             
             while (hero.TryGetEffects<ImmovableEffect>(out var effects))
@@ -28,6 +31,8 @@ namespace Core.Tasks
             }
 
             _currentHero.Value = hero;
+            Finish();
+            return UniTask.CompletedTask;
         }
     }
 }

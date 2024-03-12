@@ -28,7 +28,7 @@ public class EventBus
 
    public void RaiseEvent<T>(T evt)
    {
-      var eventType = typeof(T);
+      var eventType = evt.GetType();
       if (_handlers.TryGetValue(eventType, out var handlerCollection))
       {
          handlerCollection.RaiseEvent(evt);

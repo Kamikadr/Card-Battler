@@ -8,8 +8,8 @@
         {
             (EnemyHeroList, FriendHeroList) = (FriendHeroList, EnemyHeroList);
         }
-
-        public PlayerContainer(CharacterEntityContainer enemyHeroList, CharacterEntityContainer friendHeroList)
+        
+        public void SetCharacterContainers(CharacterEntityContainer enemyHeroList, CharacterEntityContainer friendHeroList)
         {
             EnemyHeroList = enemyHeroList;
             FriendHeroList = friendHeroList;

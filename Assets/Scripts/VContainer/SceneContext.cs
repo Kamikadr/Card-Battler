@@ -1,7 +1,9 @@
 ﻿using Core;
 using Core.Handlers;
 using Core.Handlers.Effects;
+using Core.Handlers.Visual;
 using Core.Pipeline;
+using Core.Tasks;
 using UI;
 using VContainer.Unity;
 
@@ -15,14 +17,28 @@ namespace VContainer
             builder.Register<VisualPipeline>(Lifetime.Singleton);
             builder.Register<EventBus>(Lifetime.Singleton);
             builder.Register<HeroContainer>(Lifetime.Singleton);
-            builder.Register<LogicPipelineInstaller>(Lifetime.Singleton);
+            builder.Register<LogicPipelineInstaller>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<LogicPipelineRunner>(Lifetime.Singleton);
             builder.Register<HeroButtonListener>(Lifetime.Singleton);
+            builder.Register<EntityInitializer>(Lifetime.Singleton);
+            builder.Register<PlayerContainerBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<UIService>();
             builder.Register<HeroContainer>(Lifetime.Singleton).As<IHeroListenable>().As<IHeroChangeable>();
-            builder.Register<PlayerContainer>(Lifetime.Singleton).As<IPlayerListenable>().As<IPlayerChangeable>();
+            builder.Register<PlayerContainer>(Lifetime.Singleton).As<IPlayerListenable>().As<IPlayerChangeable>().AsSelf();
 
             RegisterHandlers(builder);
+            RegisterTasks(builder);
+        }
+
+        private void RegisterTasks(IContainerBuilder builder)
+        {
+            builder.Register<StartGameTask>(Lifetime.Singleton);
+            builder.Register<StartTurnTask>(Lifetime.Singleton);
+            builder.Register<PlayerTask>(Lifetime.Singleton);
+            builder.Register<EndTurnTask>(Lifetime.Singleton);
+            builder.Register<VisualPipelineRunTask>(Lifetime.Singleton);
+            builder.Register<SwitchPlayerTask>(Lifetime.Singleton);
+            builder.Register<FinishGameTask>(Lifetime.Singleton);
         }
 
         private void RegisterHandlers(IContainerBuilder builder)
@@ -31,6 +47,7 @@ namespace VContainer
             builder.RegisterEntryPoint<BackAttackHandler>();
             builder.RegisterEntryPoint<DealDamageHandler>();
             builder.RegisterEntryPoint<DamageEffectHandler>();
+            builder.RegisterEntryPoint<AttackVisualHandler>();
         }
     }
 }

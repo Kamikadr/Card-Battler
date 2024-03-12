@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &55013092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 57628784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &57628784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,12 +231,28 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763992113062683896, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
   m_PrefabInstance: {fileID: 57628784}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 55013092}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648961bfe2c7468cb08474073dafb4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &57628787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55013092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 50
+  baseDamage: 1
+  team: 0
+  abilityDamage: 0
 --- !u!1001 &165874627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,7 +356,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763992113062683896, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
   m_PrefabInstance: {fileID: 165874627}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1605780317}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648961bfe2c7468cb08474073dafb4fa, type: 3}
@@ -520,12 +541,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763992113062683896, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
   m_PrefabInstance: {fileID: 202141556}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 838666931}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648961bfe2c7468cb08474073dafb4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &366797204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 459021462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &389887956
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,12 +820,33 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763992113062683896, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
   m_PrefabInstance: {fileID: 459021462}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 366797204}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648961bfe2c7468cb08474073dafb4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &459021465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366797204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 60
+  baseDamage: 2
+  team: 1
+  abilityDamage: 0
+--- !u!1 &478019543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 1827189790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &495628816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1246,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
+--- !u!1 &838666931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 202141556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &838666932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838666931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 60
+  baseDamage: 2
+  team: 1
+  abilityDamage: 0
 --- !u!224 &1141858329 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 383512545514860529, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
@@ -1225,6 +1293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1192473064}
   - component: {fileID: 1192473063}
+  - component: {fileID: 1192473065}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1247,7 +1316,8 @@ MonoBehaviour:
   parentReference:
     TypeName: 
   autoRun: 1
-  autoInjectGameObjects: []
+  autoInjectGameObjects:
+  - {fileID: 1192473062}
 --- !u!4 &1192473064
 Transform:
   m_ObjectHideFlags: 0
@@ -1263,6 +1333,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192473065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192473062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7095ad240241e19b7f12e34fb454df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaying: 0
+  autoRun: 0
+--- !u!1 &1263865773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 1370046839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1370046839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1366,12 +1455,49 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763992113062683896, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
   m_PrefabInstance: {fileID: 1370046839}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1263865773}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648961bfe2c7468cb08474073dafb4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1370046842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263865773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 50
+  baseDamage: 1
+  team: 0
+  abilityDamage: 0
+--- !u!1 &1605780317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 165874627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1605780318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605780317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 60
+  baseDamage: 2
+  team: 1
+  abilityDamage: 0
 --- !u!1001 &1827189790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1483,12 +1609,28 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763992113062683896, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
   m_PrefabInstance: {fileID: 1827189790}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 478019543}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648961bfe2c7468cb08474073dafb4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1827189793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478019543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 60
+  baseDamage: 2
+  team: 1
+  abilityDamage: 0
 --- !u!1 &1854234142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,12 +1893,33 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8763992113062683896, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
   m_PrefabInstance: {fileID: 1991190821}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2007068166}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648961bfe2c7468cb08474073dafb4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2007068166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 1991190821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007068167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007068166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 50
+  baseDamage: 1
+  team: 0
+  abilityDamage: 0
 --- !u!1001 &383512544509087720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1881,6 +2044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: 50
   baseDamage: 3
+  team: 0
   abilityDamage: 3
 --- !u!1001 &7264787356785615202
 PrefabInstance:

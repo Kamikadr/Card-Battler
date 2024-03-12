@@ -36,7 +36,7 @@ namespace Core.Pipeline
                 return;
             }
             
-            _tasks[_currentIndex].Run(OnTaskFinished);
+            _tasks[_currentIndex].Run(OnTaskFinished).Forget();
         }
         private void OnTaskFinished()
         {

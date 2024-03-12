@@ -13,10 +13,7 @@ namespace Core
         private readonly Dictionary<Type, List<BaseEffect>> _effectCollection = new();
 
 
-        private void Awake()
-        {
-            Initialize();
-        }
+        
 
         public void AddComponent<T>(T component) where T: IComponent
         {
@@ -57,7 +54,12 @@ namespace Core
             return false;
         }
 
-        protected abstract void Initialize();
+        public void ClearEntity()
+        {
+            _componentCollection.Clear();
+            _effectCollection.Clear();
+        }
+        
         public void Dispose()
         {
             _componentCollection.Clear();

@@ -1,4 +1,6 @@
-﻿namespace Core.Tasks
+﻿using Cysharp.Threading.Tasks;
+
+namespace Core.Tasks
 {
     public class SwitchPlayerTask: BaseTask
     {
@@ -9,9 +11,11 @@
             _playerContainer = playerContainer;
         }
 
-        protected override void OnRun()
+        protected override UniTask OnRun()
         {
             _playerContainer.SwitchPlayers();
+            Finish();
+            return UniTask.CompletedTask;
         }
     }
 }

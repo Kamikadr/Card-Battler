@@ -21,6 +21,7 @@ namespace Core.Pipeline
             _pipeline.AddTask(_objectResolver.Resolve<StartTurnTask>());
             _pipeline.AddTask(_objectResolver.Resolve<PlayerTask>());
             _pipeline.AddTask(_objectResolver.Resolve<EndTurnTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<VisualPipelineRunTask>());
             _pipeline.AddTask(_objectResolver.Resolve<SwitchPlayerTask>());
             _pipeline.AddTask(_objectResolver.Resolve<FinishGameTask>());
         }
