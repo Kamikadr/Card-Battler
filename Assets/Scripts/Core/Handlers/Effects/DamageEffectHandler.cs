@@ -12,7 +12,7 @@ namespace Core.Handlers.Effects
 
         protected override void OnEventHandle(DamageEffect evt)
         {
-            var damageComponent = evt.Source.GetEntityComponent<DamageComponent>();
+            var damageComponent = evt.source.GetEntityComponent<DamageComponent>();
             EventBus.RaiseEvent(new DealDamageEvent(damageComponent.Value, evt.Target));
         }
     }

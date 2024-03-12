@@ -52,6 +52,7 @@ namespace VContainer
             builder.RegisterEntryPoint<DamageEffectHandler>();
             builder.RegisterEntryPoint<DealDamageToRandomTargetHandler>();
             builder.RegisterEntryPoint<LifestealEffectHandler>();
+            builder.RegisterEntryPoint<DamageAbsorptionEffectHandler>();
             
             
             builder.RegisterEntryPoint<AttackVisualHandler>();

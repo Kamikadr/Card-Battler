@@ -4,7 +4,7 @@
     {
         public int Damage { get; }
 
-        public DealDamageToRandomTargetEffect(int damage)
+        public DealDamageToRandomTargetEffect(int damage, HeroEntity source): base(source)
         {
             Damage = damage;
         }

@@ -2,6 +2,11 @@
 {
     public abstract class BaseEffect
     {
-        public HeroEntity Source;
+        public readonly HeroEntity source;
+
+        protected BaseEffect(HeroEntity source)
+        {
+            this.source = source;
+        }
     }
 }

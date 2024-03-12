@@ -6,7 +6,7 @@ namespace Core.Heroes
     {
         protected override void OnInitialize()
         {
-            AddEffect(new LifestealEffect());
+            AddEffect<AttackEffect>(new LifestealEffect(this));
         }
     }
 }

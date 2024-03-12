@@ -2,5 +2,8 @@
 {
     public class ChangeTargetEffect: PreAttackEffect
     {
+        public ChangeTargetEffect(HeroEntity source) : base(source)
+        {
+        }
     }
 }

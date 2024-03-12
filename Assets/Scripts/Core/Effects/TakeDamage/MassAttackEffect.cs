@@ -2,6 +2,8 @@
 {
     public class MassAttackEffect: BaseEffect
     {
-        
+        public MassAttackEffect(HeroEntity source) : base(source)
+        {
+        }
     }
 }

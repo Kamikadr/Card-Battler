@@ -6,7 +6,7 @@ namespace Core.Heroes
     {
         protected override void OnInitialize()
         {
-            AddEffect(new ChangeTargetEffect());
+            AddEffect(new ChangeTargetEffect(this));
         }
     }
 }

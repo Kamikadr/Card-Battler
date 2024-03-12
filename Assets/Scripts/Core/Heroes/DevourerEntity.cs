@@ -11,7 +11,7 @@ namespace Core.Heroes
         [SerializeField] private int abilityDamage;
         protected override void OnInitialize()
         {
-            AddEffect<EndTurnEffect>(new DealDamageToRandomTargetEffect(abilityDamage));
+            AddEffect<EndTurnEffect>(new DealDamageToRandomTargetEffect(abilityDamage, this));
         }
     }
 }

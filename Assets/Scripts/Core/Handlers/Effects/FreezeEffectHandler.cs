@@ -10,7 +10,7 @@ namespace Core.Handlers.Effects
 
         protected override void OnEventHandle(FreezeEffect evt)
         {
-            evt.Target.AddEffect(new ImmovableEffect(evt.freezeDuration));
+            evt.Target.AddEffect(new ImmovableEffect(evt.Target, evt.freezeDuration));
         }
     }
 }

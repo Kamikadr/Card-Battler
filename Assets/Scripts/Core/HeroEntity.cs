@@ -34,6 +34,18 @@ namespace Core
             }
             value.Add(effect);
         }
+
+        public void RemoveEffect<T>(T effect) where T: BaseEffect
+        {
+            if (_effectCollection.TryGetValue(typeof(T), out var value))
+            {
+                value.Remove(effect);
+                if (value.Count == 0)
+                {
+                    _effectCollection.Remove(typeof(T));
+                }
+            }
+        }
         public IEnumerable<T> GetEffects<T>() where T: BaseEffect
         {
             if (_effectCollection.TryGetValue(typeof(T), out var value))

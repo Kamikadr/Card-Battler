@@ -2,11 +2,11 @@
 
 namespace Core.Heroes
 {
-    public class HunterEntity: BaseHeroEntity
+    public class PaladinEntity:BaseHeroEntity
     {
         protected override void OnInitialize()
         {
-            AddEffect(new BackAttackEvade(this));
+            AddEffect<DamageEvasionEffect>(new DamageAbsorptionEffect(1, this));
         }
     }
 }

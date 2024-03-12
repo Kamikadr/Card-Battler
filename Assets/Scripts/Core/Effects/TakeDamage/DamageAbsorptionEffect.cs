@@ -2,11 +2,11 @@
 
 namespace Core.Effects
 {
-    public class DamageAbsorptionEffect: TakeDamageEffect
+    public class DamageAbsorptionEffect: DamageEvasionEffect
     {
         public int duration;
 
-        public DamageAbsorptionEffect(int duration)
+        public DamageAbsorptionEffect(int duration, HeroEntity source): base(source)
         {
             this.duration = duration;
         }

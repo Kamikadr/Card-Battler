@@ -22,7 +22,7 @@ namespace Core
             AddComponent(new TeamComponent(team));
             AddComponent(new HeroViewComponent(GetComponent<HeroView>()));
             
-            AddEffect<AttackEffect>(new DamageEffect());
+            AddEffect<AttackEffect>(new DamageEffect(this));
             
             OnInitialize();
         }

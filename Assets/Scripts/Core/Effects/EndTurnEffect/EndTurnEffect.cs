@@ -2,6 +2,8 @@
 {
     public class EndTurnEffect: BaseEffect
     {
-        
+        public EndTurnEffect(HeroEntity source) : base(source)
+        {
+        }
     }
 }

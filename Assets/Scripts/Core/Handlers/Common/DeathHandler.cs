@@ -11,8 +11,8 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(DeathEvent evt)
         {
-            evt.target.AddEffect(new ImmovableEffect());
-            evt.target.AddEffect(new UntouchableEffect());
+            evt.target.AddEffect(new ImmovableEffect(evt.target));
+            evt.target.AddEffect(new UntouchableEffect(evt.target));
         }
     }
 }

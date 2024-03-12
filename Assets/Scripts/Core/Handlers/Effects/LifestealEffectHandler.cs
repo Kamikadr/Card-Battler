@@ -15,8 +15,8 @@ namespace Core.Handlers.Effects
             var random = Random.value;
             if (random >= 0.5f)
             { 
-                var damageComponent = evt.Source.GetEntityComponent<DamageComponent>();
-                EventBus.RaiseEvent(new HealEvent(evt.Source, damageComponent.Value));
+                var damageComponent = evt.source.GetEntityComponent<DamageComponent>();
+                EventBus.RaiseEvent(new HealEvent(evt.source, damageComponent.Value));
             }
         }
     }

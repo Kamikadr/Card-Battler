@@ -16,7 +16,6 @@ namespace Core.Handlers
             var attackEffects = evt.Source.Value.GetEffects<AttackEffect>();
             foreach (var effect in attackEffects)
             {
-                effect.Source = evt.Source.Value;
                 effect.Target = evt.Target.Value;
                 EventBus.RaiseEvent(effect);
             }

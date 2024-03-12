@@ -2,5 +2,8 @@
 {
     public class UntouchableEffect: BaseEffect
     {
+        public UntouchableEffect(HeroEntity source) : base(source)
+        {
+        }
     }
 }

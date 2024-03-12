@@ -4,7 +4,7 @@
     {
         public int duration;
 
-        public ImmovableEffect(int duration = -1)
+        public ImmovableEffect(HeroEntity source, int duration = -1) : base(source)
         {
             this.duration = duration;
         }
