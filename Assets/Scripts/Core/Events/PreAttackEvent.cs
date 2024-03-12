@@ -2,10 +2,10 @@
 {
     public struct PreAttackEvent
     {
-        public IHeroListenable Target;
+        public IHeroChangeable Target;
         public IHeroListenable Source;
 
-        public PreAttackEvent(IHeroListenable source, IHeroListenable target)
+        public PreAttackEvent(IHeroListenable source, IHeroChangeable target)
         {
             Target = target;
             Source = source;

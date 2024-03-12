@@ -1,6 +1,6 @@
 ﻿namespace Core.Effects.PreAttack
 {
-    public class PreAttackEffect: BaseEffect
+    public class PreAttackEffect: TargetEffect
     {
         
     }
