@@ -1,5 +1,6 @@
 ﻿using Core.Pipeline;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Core.Tasks
 {
@@ -14,6 +15,7 @@ namespace Core.Tasks
 
         protected override UniTask OnRun()
         {
+            Debug.Log("Visual");
             _visualPipeline.OnFinished += OnVisualPipelineCompleted;
             _visualPipeline.Run();
             return UniTask.CompletedTask;

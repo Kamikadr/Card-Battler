@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Effects.EndTurnGeneral;
 using Core.Tasks;
 using VContainer;
 using VContainer.Unity;
@@ -19,7 +20,10 @@ namespace Core.Pipeline
         void IInitializable.Initialize()
         {
             _pipeline.AddTask(_objectResolver.Resolve<StartTurnTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<VisualPipelineRunTask>());
             _pipeline.AddTask(_objectResolver.Resolve<PlayerTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<EndTurnAbilityTask>());
+            _pipeline.AddTask(_objectResolver.Resolve<EndTurnGeneralAbilityTask>());
             _pipeline.AddTask(_objectResolver.Resolve<EndTurnTask>());
             _pipeline.AddTask(_objectResolver.Resolve<VisualPipelineRunTask>());
             _pipeline.AddTask(_objectResolver.Resolve<SwitchPlayerTask>());

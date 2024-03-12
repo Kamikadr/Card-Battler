@@ -1,7 +1,18 @@
-﻿namespace Core.Tasks.Visual
+﻿using Cysharp.Threading.Tasks;
+
+namespace Core.Tasks.Visual
 {
-    public class DeathVisualTask
+    public class DeathVisualTask: BaseVisualTask
     {
+        public DeathVisualTask(HeroEntity source) : base(source)
+        {
+        }
+        
+        protected override UniTask OnRun()
+        {
+            return UniTask.CompletedTask;
+        }
+
         
     }
 }

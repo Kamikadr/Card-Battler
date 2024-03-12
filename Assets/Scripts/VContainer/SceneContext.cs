@@ -4,6 +4,7 @@ using Core.Handlers.Effects;
 using Core.Handlers.Visual;
 using Core.Pipeline;
 using Core.Tasks;
+using Core.Tasks.Visual;
 using UI;
 using VContainer.Unity;
 
@@ -36,6 +37,8 @@ namespace VContainer
             builder.Register<StartTurnTask>(Lifetime.Singleton);
             builder.Register<PlayerTask>(Lifetime.Singleton);
             builder.Register<EndTurnTask>(Lifetime.Singleton);
+            builder.Register<EndTurnAbilityTask>(Lifetime.Singleton);
+            builder.Register<EndTurnGeneralAbilityTask>(Lifetime.Singleton);
             builder.Register<VisualPipelineRunTask>(Lifetime.Singleton);
             builder.Register<SwitchPlayerTask>(Lifetime.Singleton);
             builder.Register<FinishGameTask>(Lifetime.Singleton);
@@ -47,7 +50,12 @@ namespace VContainer
             builder.RegisterEntryPoint<BackAttackHandler>();
             builder.RegisterEntryPoint<DealDamageHandler>();
             builder.RegisterEntryPoint<DamageEffectHandler>();
+            builder.RegisterEntryPoint<DealDamageToRandomTargetHandler>();
+            
+            
             builder.RegisterEntryPoint<AttackVisualHandler>();
+            builder.RegisterEntryPoint<DealDamageVisualHandler>();
+            builder.RegisterEntryPoint<ActivityHeroVisualHandler>();
         }
     }
 }

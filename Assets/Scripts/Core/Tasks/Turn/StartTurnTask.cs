@@ -1,4 +1,5 @@
 ﻿using Core.Effects;
+using Core.Events;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -30,7 +31,9 @@ namespace Core.Tasks
                 hero = _currentPlayer.FriendHeroList.GetNext();
             }
 
+            
             _currentHero.Value = hero;
+            _eventBus.RaiseEvent(new ActivityHeroEvent(hero, true));
             Finish();
             return UniTask.CompletedTask;
         }

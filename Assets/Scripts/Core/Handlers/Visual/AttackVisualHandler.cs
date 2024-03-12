@@ -4,7 +4,7 @@ using Core.Tasks.Visual;
 
 namespace Core.Handlers.Visual
 {
-    public class AttackVisualHandler: BaseVisualTask<AttackEvent>
+    public class AttackVisualHandler: BaseVisualHandler<AttackEvent>
     {
         public AttackVisualHandler(EventBus eventBus, VisualPipeline visualPipeline) : base(eventBus, visualPipeline)
         {

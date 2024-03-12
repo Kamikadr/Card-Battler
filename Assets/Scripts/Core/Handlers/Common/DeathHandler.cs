@@ -1,4 +1,5 @@
 ﻿using Core.Components;
+using Core.Effects;
 
 namespace Core.Handlers
 {
@@ -10,7 +11,8 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(DeathEvent evt)
         {
-            evt.target.AddComponent(new DeathComponent());
+            evt.target.AddEffect(new ImmovableEffect());
+            evt.target.AddEffect(new UntouchableEffect());
         }
     }
 }
