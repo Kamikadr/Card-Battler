@@ -15,7 +15,7 @@ namespace Core
 
         
 
-        public void AddComponent<T>(T component) where T: IComponent
+        public void AddEntityComponent<T>(T component) where T: IComponent
         {
             _componentCollection[typeof(T)] = component;
         }
@@ -23,6 +23,17 @@ namespace Core
         public T GetEntityComponent<T>()
         {
             return (T) _componentCollection[typeof(T)];
+        }
+        public bool TryGetEntityComponent<T>(out T value)
+        {
+            if (_componentCollection.TryGetValue(typeof(T),out var rawValue))
+            {
+                value = (T)rawValue;
+                return true;
+            }
+
+            value = default;
+            return false;
         }
 
         public void AddEffect<T>(T effect) where T: BaseEffect

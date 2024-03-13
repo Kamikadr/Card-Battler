@@ -6,15 +6,28 @@ using UnityEngine;
 
 namespace Core
 {
-    public class EntityInitializer
+    public class GameInitializer
     {
         private readonly IPlayerListenable _playerListenable;
 
-        public EntityInitializer(IPlayerListenable playerListenable)
+        public GameInitializer(IPlayerListenable playerListenable)
         {
             _playerListenable = playerListenable;
         }
-        public void SetupEntity()
+
+        public void SetupGame()
+        {
+            SetupEntity();
+            SetupContainers();
+        }
+
+        private void SetupContainers()
+        {
+            _playerListenable.FriendHeroList.Refresh();
+            _playerListenable.EnemyHeroList.Refresh();
+        }
+
+        private void SetupEntity()
         {
             var entities = new List<BaseHeroEntity>();
             entities.AddRange(_playerListenable.FriendHeroList.GetAll());

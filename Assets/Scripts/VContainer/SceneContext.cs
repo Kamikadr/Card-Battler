@@ -22,7 +22,8 @@ namespace VContainer
             builder.Register<LogicPipelineInstaller>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<LogicPipelineRunner>(Lifetime.Singleton);
             builder.Register<HeroButtonListener>(Lifetime.Singleton);
-            builder.Register<EntityInitializer>(Lifetime.Singleton);
+            builder.Register<GameInitializer>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<ResultController>();
             builder.Register<PlayerContainerBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<UIService>();
             builder.Register<HeroContainer>(Lifetime.Singleton).As<IHeroListenable>().As<IHeroChangeable>();
@@ -37,7 +38,7 @@ namespace VContainer
             builder.Register<StartGameTask>(Lifetime.Singleton);
             builder.Register<StartTurnTask>(Lifetime.Singleton);
             builder.Register<PlayerTask>(Lifetime.Singleton);
-            builder.Register<EndTurnTask>(Lifetime.Singleton);
+            builder.Register<EndTurnTask>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<EndTurnAbilityTask>(Lifetime.Singleton);
             builder.Register<EndTurnGeneralAbilityTask>(Lifetime.Singleton);
             builder.Register<VisualPipelineRunTask>(Lifetime.Singleton);

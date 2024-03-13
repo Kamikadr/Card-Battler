@@ -33,10 +33,14 @@ namespace Core
         {
             return _heroEntities.Length;
         }
-
         public IReadOnlyList<BaseHeroEntity> GetAll()
         {
             return _heroEntities;
+        }
+
+        public void Refresh()
+        {
+            _currentIndex = 0;
         }
     }
 }

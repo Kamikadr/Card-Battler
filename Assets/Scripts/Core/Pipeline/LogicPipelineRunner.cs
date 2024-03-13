@@ -1,7 +1,10 @@
-﻿namespace Core.Pipeline
+﻿using System;
+
+namespace Core.Pipeline
 {
     public sealed class LogicPipelineRunner
     {
+        public event Action OnRunStopped;
         private readonly LogicPipeline _pipeline;
         private bool _autoRun;
         private bool _isRunning;
@@ -17,9 +20,16 @@
             {
                 return;
             }
+
+            _isRunning = true;
             _autoRun = autoRun;
             _pipeline.OnFinished += OnPipelineFinished;
             Run();
+        }
+
+        public void StopRun()
+        {
+            _autoRun = false;
         }
 
         private void Run()
@@ -37,6 +47,7 @@
             {
                 _pipeline.OnFinished -= OnPipelineFinished;
                 _isRunning = false;
+                OnRunStopped?.Invoke();
             }
         }
     }

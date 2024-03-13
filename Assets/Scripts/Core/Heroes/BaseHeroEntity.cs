@@ -16,11 +16,11 @@ namespace Core
 
         private void Initialize()
         {
-            AddComponent(new HealthComponent(baseHealth));
-            AddComponent(new DamageComponent(baseDamage));
-            AddComponent(new TeamComponent(team));
-            AddComponent(new TeamComponent(team));
-            AddComponent(new HeroViewComponent(GetComponent<HeroView>()));
+            AddEntityComponent(new HealthComponent(baseHealth));
+            AddEntityComponent(new DamageComponent(baseDamage));
+            AddEntityComponent(new TeamComponent(team));
+            AddEntityComponent(new TeamComponent(team));
+            AddEntityComponent(new HeroViewComponent(GetComponent<HeroView>()));
             
             AddEffect<AttackEffect>(new DamageEffect(this));
             

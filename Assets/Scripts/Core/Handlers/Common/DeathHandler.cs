@@ -14,6 +14,7 @@ namespace Core.Handlers
         {
             evt.target.AddEffect(new ImmovableEffect(evt.target));
             evt.target.AddEffect(new UntouchableEffect(evt.target));
+            evt.target.AddEntityComponent(new DeathComponent());
         }
     }
 }

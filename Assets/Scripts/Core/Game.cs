@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Pipeline;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer;
 
@@ -8,27 +9,45 @@ namespace Core
     public class Game: MonoBehaviour
     {
         
-        [SerializeField] private bool isPlaying = false; 
+        [SerializeField, ReadOnly] private bool isPlaying = false; 
         [SerializeField] private bool autoRun; 
         private LogicPipelineRunner _logicPipelineRunner;
-        private EntityInitializer _entityInitializer;
+        private GameInitializer _gameInitializer;
 
         [Inject]
-        private void Construct(LogicPipelineRunner logicPipelineRunner, EntityInitializer entityInitializer)
+        private void Construct(LogicPipelineRunner logicPipelineRunner, GameInitializer gameInitializer)
         {
             _logicPipelineRunner = logicPipelineRunner;
-            _entityInitializer = entityInitializer;
+            _gameInitializer = gameInitializer;
         }
         private void Start()
         {
             StartGame();
         }
-
-        public void StartGame()
+        
+        [Button]
+        private void StartGame()
         {
             isPlaying = true;
-            _entityInitializer.SetupEntity();
+            _gameInitializer.SetupGame();
             _logicPipelineRunner.Run(autoRun);
+            _logicPipelineRunner.OnRunStopped += OnRunEnd;
+        }
+
+        private void OnRunEnd()
+        {
+            isPlaying = false;
+            _logicPipelineRunner.OnRunStopped -= OnRunEnd;
+        }
+
+        [Button]
+        private void RunTasks()
+        {
+            if (isPlaying)
+            {
+                return;
+            }
+            _logicPipelineRunner.Run(false);
         }
     }
 }
