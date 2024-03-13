@@ -1,6 +1,6 @@
 ﻿namespace Core.Effects
 {
-    public abstract class BaseEffect
+    public abstract class BaseEffect: IEvent
     {
         public readonly HeroEntity source;
 

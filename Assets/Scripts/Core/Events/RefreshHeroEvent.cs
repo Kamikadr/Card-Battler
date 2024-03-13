@@ -1,6 +1,6 @@
 ﻿namespace Core.Events
 {
-    public struct RefreshHeroEvent
+    public struct RefreshHeroEvent: IEvent
     {
         public readonly BaseHeroEntity entity;
 

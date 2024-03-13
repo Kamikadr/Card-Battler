@@ -2,7 +2,7 @@
 
 namespace Core.Events
 {
-    public struct ActivityHeroEvent
+    public struct ActivityHeroEvent: IEvent
     {
         public readonly HeroEntity hero;
         public readonly bool isActive;

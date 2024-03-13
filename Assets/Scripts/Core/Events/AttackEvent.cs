@@ -2,7 +2,7 @@
 
 namespace Core.Events
 {
-    public struct AttackEvent
+    public struct AttackEvent: IEvent
     {
         public IHeroListenable Target;
         public IHeroListenable Source;

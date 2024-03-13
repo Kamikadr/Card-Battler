@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class EventBus
 {
-   private Dictionary<Type, IEventHandlerCollection> _handlers = new();
-   private int _currentIndex = 0;
+   private readonly Dictionary<Type, IEventHandlerCollection> _handlers = new();
+   private bool _isRunning;
+   private readonly Queue<IEvent> _eventQueue = new();
 
 
    public void Subscribe<T>(Action<T> handler)
@@ -26,12 +27,30 @@ public class EventBus
       }
    }
 
-   public void RaiseEvent<T>(T evt)
+   public void RaiseEvent<T>(T evt) where T: IEvent
    {
+      if (_isRunning)
+      {
+         _eventQueue.Enqueue(evt);
+         return;
+      }
+
+      _isRunning = true;
       var eventType = evt.GetType();
       if (_handlers.TryGetValue(eventType, out var handlerCollection))
       {
          handlerCollection.RaiseEvent(evt);
       }
+
+      _isRunning = false;
+      if (_eventQueue.TryDequeue(out var queueEvt))
+      {
+         RaiseEvent(queueEvt);
+      }
+   }
+
+   private void RunEvents()
+   {
+      
    }
 }

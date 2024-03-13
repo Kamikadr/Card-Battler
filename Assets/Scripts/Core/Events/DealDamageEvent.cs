@@ -2,7 +2,7 @@
 
 namespace Core.Events
 {
-    public struct DealDamageEvent
+    public struct DealDamageEvent: IEvent
     {
         public HeroEntity Target;
         public int Damage;

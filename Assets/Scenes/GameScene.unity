@@ -1623,13 +1623,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 478019543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Script: {fileID: 11500000, guid: 114fc17899874a8cb78e30e91dd48fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 60
-  baseDamage: 2
+  baseHealth: 1
+  baseDamage: 1
   team: 1
-  abilityDamage: 0
+  abilityDamage: 1
 --- !u!1 &1854234142
 GameObject:
   m_ObjectHideFlags: 0

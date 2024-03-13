@@ -1,6 +1,6 @@
 ﻿namespace Core.Handlers
 {
-    public struct HealEvent
+    public struct HealEvent: IEvent
     {
         public readonly HeroEntity target;
         public readonly int hp;

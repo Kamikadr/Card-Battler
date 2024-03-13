@@ -1,4 +1,5 @@
-﻿using Core.Pipeline;
+﻿using Core.Events;
+using Core.Pipeline;
 using Core.Tasks.Visual;
 
 namespace Core.Handlers.Visual

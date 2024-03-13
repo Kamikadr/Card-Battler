@@ -1,6 +1,6 @@
 ﻿namespace Core.Events
 {
-    public struct PreAttackEvent
+    public struct PreAttackEvent: IEvent
     {
         public IHeroChangeable Target;
         public IHeroListenable Source;
