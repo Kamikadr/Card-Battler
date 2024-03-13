@@ -2,7 +2,7 @@
 
 namespace Core.Tasks.Visual.Effects
 {
-    public class EndTurnRandomHealEffectVisualTask: BaseVisualTask
+    public sealed class EndTurnRandomHealEffectVisualTask: BaseVisualTask
     {
         public EndTurnRandomHealEffectVisualTask(HeroEntity source) : base(source)
         {
@@ -10,7 +10,7 @@ namespace Core.Tasks.Visual.Effects
 
         protected override async UniTask OnRun()
         {
-            var audio = source.GetEntityComponent<HeroAudioComponent>();
+            var audio = Source.GetEntityComponent<HeroAudioComponent>();
             await AudioPlayer.Instance.PlaySoundAsync(audio.GetAbilityAudio());
             Finish();
         }

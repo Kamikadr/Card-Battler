@@ -1,6 +1,6 @@
 ﻿namespace Core.Components
 {
-    public class DeathComponent: IComponent
+    public sealed class DeathComponent: IComponent
     {
     }
 }

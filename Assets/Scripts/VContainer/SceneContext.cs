@@ -1,39 +1,48 @@
 ﻿using Core;
-using Core.Effects;
-using Core.Handlers;
-using Core.Handlers.Effects;
-using Core.Handlers.Visual;
+using Core.DataContainers;
+using Core.EventBus;
+using Core.Handlers.Logic.Common;
+using Core.Handlers.Logic.Effects;
+using Core.Handlers.Visual.Common;
 using Core.Handlers.Visual.Effects;
 using Core.Pipeline;
-using Core.Tasks;
-using Core.Tasks.Visual;
-using Core.Tasks.Visual.Effects;
+using Core.Tasks.Logic;
+using Game;
 using UI;
 using VContainer.Unity;
 
 namespace VContainer
 {
-    public class SceneContext: LifetimeScope
+    public sealed class SceneContext: LifetimeScope
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<LogicPipeline>(Lifetime.Singleton);
-            builder.Register<VisualPipeline>(Lifetime.Singleton);
-            builder.Register<EventBus>(Lifetime.Singleton);
-            builder.Register<HeroContainer>(Lifetime.Singleton);
-            builder.Register<LogicPipelineInstaller>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.Register<LogicPipelineRunner>(Lifetime.Singleton);
-            builder.Register<HeroButtonListener>(Lifetime.Singleton);
-            builder.Register<GameInitializer>(Lifetime.Singleton);
-            builder.Register<TargetProvider>(Lifetime.Singleton);
-            builder.RegisterEntryPoint<ResultController>();
-            builder.Register<PlayerContainerBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.RegisterComponentInHierarchy<UIService>();
-            builder.Register<HeroContainer>(Lifetime.Singleton).As<IHeroListenable>().As<IHeroChangeable>();
-            builder.Register<PlayerContainer>(Lifetime.Singleton).As<IPlayerListenable>().As<IPlayerChangeable>().AsSelf();
-
+            RegisterPipelines(builder);
+            RegisterDataContainers(builder);
             RegisterHandlers(builder);
             RegisterTasks(builder);
+            
+            builder.Register<EventBus>(Lifetime.Singleton);
+            builder.Register<HeroButtonListener>(Lifetime.Singleton);
+            builder.Register<GameInitializer>(Lifetime.Singleton);
+            builder.RegisterComponentInHierarchy<UIService>();
+            builder.RegisterEntryPoint<ResultController>();
+        }
+
+        private static void RegisterPipelines(IContainerBuilder builder)
+        {
+            builder.Register<LogicPipelineInstaller>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<LogicPipelineRunner>(Lifetime.Singleton);
+            builder.Register<LogicPipeline>(Lifetime.Singleton);
+            builder.Register<VisualPipeline>(Lifetime.Singleton);
+        }
+
+        private void RegisterDataContainers(IContainerBuilder builder)
+        {
+            builder.Register<TargetProvider>(Lifetime.Singleton);
+            builder.Register<HeroContainer>(Lifetime.Singleton).As<IHeroListenable>().As<IHeroChangeable>();
+            builder.Register<PlayerContainer>(Lifetime.Singleton).As<IPlayerListenable>().As<IPlayerChangeable>().AsSelf();
+            builder.Register<PlayerContainerBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
         }
 
         private void RegisterTasks(IContainerBuilder builder)
@@ -51,6 +60,7 @@ namespace VContainer
 
         private void RegisterHandlers(IContainerBuilder builder)
         {
+            //Logic Handlers
             builder.RegisterEntryPoint<AttackHandler>();
             builder.RegisterEntryPoint<BackAttackHandler>();
             builder.RegisterEntryPoint<DealDamageHandler>();
@@ -67,7 +77,7 @@ namespace VContainer
             builder.RegisterEntryPoint<ChangeTargetEffectHandler>();
             builder.RegisterEntryPoint<PreAttackHandler>();
             
-            
+            // Visual Handlers
             builder.RegisterEntryPoint<AttackVisualHandler>();
             builder.RegisterEntryPoint<HealVisualHandler>();
             builder.RegisterEntryPoint<DealDamageVisualHandler>();

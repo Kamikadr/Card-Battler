@@ -1,6 +1,6 @@
 ﻿namespace Core.Effects.EndTurnEffect
 {
-    public class DealDamageToRandomTargetEffect: EndTurnEffect
+    public sealed class DealDamageToRandomTargetEffect: EndTurnEffect
     {
         public int Damage { get; }
 

@@ -1,8 +1,8 @@
 ﻿namespace Core.Effects.PreAttack
 {
-    public class PreAttackEffect: TargetEffect
+    public abstract class PreAttackEffect: TargetEffect
     {
-        public PreAttackEffect(HeroEntity source) : base(source)
+        protected PreAttackEffect(HeroEntity source) : base(source)
         {
         }
     }

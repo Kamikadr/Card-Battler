@@ -1,11 +1,11 @@
-﻿using UI;
+﻿using Core.DataContainers;
 
 namespace Core.Events
 {
     public struct AttackEvent: IEvent
     {
-        public IHeroListenable Target;
-        public IHeroListenable Source;
+        public readonly IHeroListenable Target;
+        public readonly IHeroListenable Source;
 
         public AttackEvent(IHeroListenable source, IHeroListenable target)
         {

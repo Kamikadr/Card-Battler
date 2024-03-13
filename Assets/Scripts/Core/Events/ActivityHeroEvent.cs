@@ -1,16 +1,14 @@
-﻿using UI;
-
-namespace Core.Events
+﻿namespace Core.Events
 {
     public struct ActivityHeroEvent: IEvent
     {
-        public readonly HeroEntity hero;
-        public readonly bool isActive;
+        public readonly HeroEntity Hero;
+        public readonly bool IsActive;
 
         public ActivityHeroEvent(HeroEntity hero, bool isActive)
         {
-            this.hero = hero;
-            this.isActive = isActive;
+            Hero = hero;
+            IsActive = isActive;
         }
     }
 }

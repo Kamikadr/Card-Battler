@@ -1,8 +1,8 @@
 ﻿namespace Core.Effects.TakeDamage
 {
-    public class TakeDamageEffect: BaseEffect
+    public abstract class TakeDamageEffect: BaseEffect
     {
-        public TakeDamageEffect(HeroEntity source) : base(source)
+        protected TakeDamageEffect(HeroEntity source) : base(source)
         {
         }
     }

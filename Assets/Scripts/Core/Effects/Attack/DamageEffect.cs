@@ -1,6 +1,6 @@
-﻿namespace Core.Effects
+﻿namespace Core.Effects.Attack
 {
-    public class DamageEffect: AttackEffect
+    public sealed class DamageEffect: AttackEffect
     {
         public DamageEffect(HeroEntity source) : base(source)
         {

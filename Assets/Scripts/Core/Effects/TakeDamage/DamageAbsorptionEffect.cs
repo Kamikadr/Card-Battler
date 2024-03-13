@@ -1,14 +1,12 @@
-﻿using Core.Effects.TakeDamage;
-
-namespace Core.Effects
+﻿namespace Core.Effects.TakeDamage
 {
-    public class DamageAbsorptionEffect: DamageEvasionEffect
+    public sealed class DamageAbsorptionEffect: DamageEvasionEffect
     {
-        public int duration;
+        public int Duration;
 
         public DamageAbsorptionEffect(int duration, HeroEntity source): base(source)
         {
-            this.duration = duration;
+            this.Duration = duration;
         }
     }
 }

@@ -1,11 +1,9 @@
-﻿using UI;
-
-namespace Core.Events
+﻿namespace Core.Events
 {
     public struct DealDamageEvent: IEvent
     {
-        public HeroEntity Target;
-        public int Damage;
+        public readonly HeroEntity Target;
+        public readonly int Damage;
 
         public DealDamageEvent(int damage, HeroEntity target)
         {

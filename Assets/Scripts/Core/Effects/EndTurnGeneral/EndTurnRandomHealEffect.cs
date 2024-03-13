@@ -1,12 +1,12 @@
 ﻿namespace Core.Effects.EndTurnGeneral
 {
-    public class EndTurnRandomHealEffect: EndTurnGeneralEffect
+    public sealed class EndTurnRandomHealEffect: EndTurnGeneralEffect
     {
-        public readonly int healValue;
+        public readonly int HealValue;
 
         public EndTurnRandomHealEffect(int healValue, HeroEntity source) : base(source)
         {
-            this.healValue = healValue;
+            HealValue = healValue;
         }
     }
 }

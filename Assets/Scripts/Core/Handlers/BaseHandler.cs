@@ -5,9 +5,9 @@ namespace Core.Handlers
 {
     public abstract class BaseHandler<T>:IInitializable, IDisposable
     {
-        protected readonly EventBus EventBus;
+        protected readonly EventBus.EventBus EventBus;
 
-        protected BaseHandler(EventBus eventBus)
+        protected BaseHandler(EventBus.EventBus eventBus)
         {
             EventBus = eventBus;
         }

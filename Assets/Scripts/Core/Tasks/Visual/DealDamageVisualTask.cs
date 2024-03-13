@@ -1,10 +1,9 @@
 ﻿using Core.Components;
-using Core.Handlers;
 using Cysharp.Threading.Tasks;
 
 namespace Core.Tasks.Visual
 {
-    public class DealDamageVisualTask: BaseTask
+    public sealed class DealDamageVisualTask: BaseTask
     {
         private readonly HeroEntity _target;
 
@@ -19,8 +18,8 @@ namespace Core.Tasks.Visual
             var damageComponent = _target.GetEntityComponent<DamageComponent>();
             var heroView = _target.GetEntityComponent<HeroViewComponent>();
             
-            heroView.Value.SetStats($"{damageComponent.Value} / {healthComponent.currentHealth}");
-            if (healthComponent.currentHealth < healthComponent.maxHealth * 0.2)
+            heroView.Value.SetStats($"{damageComponent.Value} / {healthComponent.CurrentHealth}");
+            if (healthComponent.CurrentHealth < healthComponent.MaxHealth * 0.2)
             {
                 var audio = _target.GetEntityComponent<HeroAudioComponent>();
                 await AudioPlayer.Instance.PlaySoundAsync(audio.GetLowHealthAudio());

@@ -1,4 +1,6 @@
-﻿namespace Core
+﻿using Core.DataContainers;
+
+namespace Core
 {
     public class TargetProvider
     {

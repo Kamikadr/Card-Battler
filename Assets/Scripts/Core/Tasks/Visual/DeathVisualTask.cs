@@ -2,7 +2,7 @@
 
 namespace Core.Tasks.Visual
 {
-    public class DeathVisualTask: BaseVisualTask
+    public sealed class DeathVisualTask: BaseVisualTask
     {
         public DeathVisualTask(HeroEntity source) : base(source)
         {
@@ -10,7 +10,7 @@ namespace Core.Tasks.Visual
         
         protected override async UniTask OnRun()
         {
-            var audio = source.GetEntityComponent<HeroAudioComponent>();
+            var audio = Source.GetEntityComponent<HeroAudioComponent>();
             await AudioPlayer.Instance.PlaySoundAsync(audio.GetDeathAudio());
             Finish();
         }

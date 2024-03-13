@@ -1,8 +1,8 @@
 ﻿namespace Core.Effects.EndTurnEffect
 {
-    public class EndTurnEffect: BaseEffect
+    public abstract class EndTurnEffect: BaseEffect
     {
-        public EndTurnEffect(HeroEntity source) : base(source)
+        protected EndTurnEffect(HeroEntity source) : base(source)
         {
         }
     }

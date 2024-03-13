@@ -1,6 +1,6 @@
-﻿namespace Core.Effects
+﻿namespace Core.Effects.Attack
 {
-    public class LifestealEffect: AttackEffect
+    public sealed class LifestealEffect: AttackEffect
     {
         public LifestealEffect(HeroEntity source) : base(source)
         {

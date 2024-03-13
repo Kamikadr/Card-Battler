@@ -1,12 +1,12 @@
 ﻿namespace Core.Effects.TakeDamage
 {
-    public class MassAttackEffect: TakeDamageEffect
+    public sealed class MassAttackEffect: TakeDamageEffect
     {
-        public readonly int damage;
+        public readonly int Damage;
 
         public MassAttackEffect(HeroEntity source, int damage) : base(source)
         {
-            this.damage = damage;
+            Damage = damage;
         }
     }
 }

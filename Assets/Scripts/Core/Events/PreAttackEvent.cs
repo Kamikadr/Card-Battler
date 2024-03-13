@@ -1,4 +1,6 @@
-﻿namespace Core.Events
+﻿using Core.DataContainers;
+
+namespace Core.Events
 {
     public struct PreAttackEvent: IEvent
     {

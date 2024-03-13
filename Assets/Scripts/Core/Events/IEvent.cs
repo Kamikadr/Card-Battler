@@ -1,3 +1,6 @@
-﻿public interface IEvent
+﻿namespace Core.Events
 {
+    public interface IEvent
+    {
+    }
 }

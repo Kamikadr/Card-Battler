@@ -2,11 +2,11 @@
 {
     public class ImmovableEffect: BaseEffect
     {
-        public int duration;
+        public int Duration;
 
         public ImmovableEffect(HeroEntity source, int duration = -1) : base(source)
         {
-            this.duration = duration;
+            Duration = duration;
         }
     }
 }

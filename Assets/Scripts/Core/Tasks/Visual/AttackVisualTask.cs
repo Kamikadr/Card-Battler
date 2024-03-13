@@ -2,7 +2,7 @@
 
 namespace Core.Tasks.Visual
 {
-    public class AttackVisualTask: BaseTask
+    public sealed class AttackVisualTask: BaseTask
     {
         private readonly HeroEntity _source;
         private readonly HeroEntity _target;

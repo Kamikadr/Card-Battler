@@ -1,4 +1,4 @@
-﻿namespace Core.Effects
+﻿namespace Core.Effects.Attack
 {
     public abstract class AttackEffect: TargetEffect
     {

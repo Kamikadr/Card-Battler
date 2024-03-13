@@ -1,8 +1,8 @@
 ﻿namespace Core.Components
 {
-    public class DamageComponent: IComponent
+    public sealed class DamageComponent: IComponent
     {
-        public int Value;
+        public readonly int Value;
 
         public DamageComponent(int damage)
         {

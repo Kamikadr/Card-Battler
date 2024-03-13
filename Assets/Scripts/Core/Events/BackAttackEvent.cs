@@ -1,9 +1,11 @@
-﻿namespace Core.Events
+﻿using Core.DataContainers;
+
+namespace Core.Events
 {
     public struct BackAttackEvent: IEvent
     {
-        public IHeroListenable Target;
-        public IHeroListenable Source;
+        public readonly IHeroListenable Target;
+        public readonly IHeroListenable Source;
 
         public BackAttackEvent(IHeroListenable source, IHeroListenable target)
         {

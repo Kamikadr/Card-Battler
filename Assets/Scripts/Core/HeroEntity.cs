@@ -11,15 +11,11 @@ namespace Core
     {
         private Dictionary<Type, object> _componentCollection = new();
         private readonly Dictionary<Type, List<BaseEffect>> _effectCollection = new();
-
-
         
-
         public void AddEntityComponent<T>(T component) where T: IComponent
         {
             _componentCollection[typeof(T)] = component;
         }
-
         public T GetEntityComponent<T>()
         {
             return (T) _componentCollection[typeof(T)];

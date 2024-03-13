@@ -2,7 +2,7 @@
 
 namespace Core.Tasks.Visual
 {
-    public class HeroActivityVisualTask: BaseVisualTask
+    public sealed class HeroActivityVisualTask: BaseVisualTask
     {
         private readonly bool _isActive;
 
@@ -13,11 +13,11 @@ namespace Core.Tasks.Visual
 
         protected override async UniTask OnRun()
         {
-            sourceView.Value.SetActive(_isActive);
+            SourceView.Value.SetActive(_isActive);
             
             if (_isActive)
             {
-                var audio = source.GetEntityComponent<HeroAudioComponent>();
+                var audio = Source.GetEntityComponent<HeroAudioComponent>();
                 await AudioPlayer.Instance.PlaySoundAsync(audio.GetStartAudio());
             }
             

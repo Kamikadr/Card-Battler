@@ -2,11 +2,11 @@
 {
     public struct DeathEvent: IEvent
     {
-        public readonly HeroEntity target;
+        public readonly HeroEntity Target;
 
         public DeathEvent(HeroEntity target)
         {
-            this.target = target;
+            Target = target;
         }
     }
 }

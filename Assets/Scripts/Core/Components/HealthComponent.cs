@@ -1,21 +1,19 @@
-﻿using Core.Components;
-
-namespace Core.Handlers
+﻿namespace Core.Components
 {
-    public class HealthComponent: IComponent
+    public sealed class HealthComponent: IComponent
     {
-        public readonly int maxHealth;
-        public int currentHealth;
+        public readonly int MaxHealth;
+        public int CurrentHealth;
 
         public HealthComponent(int maxHp)
         {
-            maxHealth = maxHp;
-            currentHealth = maxHp;
+            MaxHealth = maxHp;
+            CurrentHealth = maxHp;
         }
 
         public void RefreshComponent()
         {
-            currentHealth = maxHealth;
+            CurrentHealth = MaxHealth;
         }
     }
 }
