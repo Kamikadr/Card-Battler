@@ -56,9 +56,12 @@ namespace VContainer
             builder.RegisterEntryPoint<DamageAbsorptionEffectHandler>();
             builder.RegisterEntryPoint<FreezeEffectHandler>();
             builder.RegisterEntryPoint<ImmovableEffectHandler>();
+            builder.RegisterEntryPoint<EndTurnRandomHealEffectHandler>();
+            builder.RegisterEntryPoint<HealHandler>();
             
             
             builder.RegisterEntryPoint<AttackVisualHandler>();
+            builder.RegisterEntryPoint<HealVisualHandler>();
             builder.RegisterEntryPoint<DealDamageVisualHandler>();
             builder.RegisterEntryPoint<ActivityHeroVisualHandler>();
         }
