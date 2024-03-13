@@ -1260,13 +1260,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 838666931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Script: {fileID: 11500000, guid: a0df1975ce8d4bfa8522e560642db8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 60
-  baseDamage: 2
+  baseHealth: 30
+  baseDamage: 30
   team: 1
-  abilityDamage: 0
 --- !u!224 &1141858329 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 383512545514860529, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
@@ -1346,7 +1345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaying: 0
-  autoRun: 0
+  autoRun: 1
 --- !u!1 &1263865773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
@@ -1913,13 +1912,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2007068166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Script: {fileID: 11500000, guid: 8528c71fc49e474993a565af1dcd53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 50
-  baseDamage: 1
+  baseHealth: 25
+  baseDamage: 10
   team: 0
-  abilityDamage: 0
 --- !u!1001 &383512544509087720
 PrefabInstance:
   m_ObjectHideFlags: 0

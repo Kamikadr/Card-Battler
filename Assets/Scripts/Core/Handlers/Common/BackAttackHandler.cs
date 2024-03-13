@@ -1,4 +1,5 @@
-﻿using Core.Effects;
+﻿using System.Linq;
+using Core.Effects;
 using Core.Events;
 
 namespace Core.Handlers
@@ -13,7 +14,7 @@ namespace Core.Handlers
         {
             if (evt.Target.Value.TryGetEffects<BackAttackEvade>(out var evasionEffects))
             {
-                foreach (var effect in evasionEffects)
+                foreach (var effect in evasionEffects.ToArray())
                 {
                     EventBus.RaiseEvent(effect);
                 }

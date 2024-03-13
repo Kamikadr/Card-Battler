@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Effects;
 using Core.Handlers;
 using Core.Handlers.Effects;
 using Core.Handlers.Visual;
@@ -53,6 +54,8 @@ namespace VContainer
             builder.RegisterEntryPoint<DealDamageToRandomTargetHandler>();
             builder.RegisterEntryPoint<LifestealEffectHandler>();
             builder.RegisterEntryPoint<DamageAbsorptionEffectHandler>();
+            builder.RegisterEntryPoint<FreezeEffectHandler>();
+            builder.RegisterEntryPoint<ImmovableEffectHandler>();
             
             
             builder.RegisterEntryPoint<AttackVisualHandler>();

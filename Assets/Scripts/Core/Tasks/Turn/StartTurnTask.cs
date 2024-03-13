@@ -1,4 +1,5 @@
-﻿using Core.Effects;
+﻿using System.Linq;
+using Core.Effects;
 using Core.Events;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace Core.Tasks
             
             while (hero.TryGetEffects<ImmovableEffect>(out var effects))
             {
-                foreach (var effect in effects)
+                foreach (var effect in effects.ToArray())
                 {
                     _eventBus.RaiseEvent(effect);
                 }
