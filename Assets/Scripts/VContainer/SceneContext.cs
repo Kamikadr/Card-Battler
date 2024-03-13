@@ -25,6 +25,7 @@ namespace VContainer
             builder.Register<LogicPipelineRunner>(Lifetime.Singleton);
             builder.Register<HeroButtonListener>(Lifetime.Singleton);
             builder.Register<GameInitializer>(Lifetime.Singleton);
+            builder.Register<TargetProvider>(Lifetime.Singleton);
             builder.RegisterEntryPoint<ResultController>();
             builder.Register<PlayerContainerBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<UIService>();
@@ -63,6 +64,8 @@ namespace VContainer
             builder.RegisterEntryPoint<HealHandler>();
             builder.RegisterEntryPoint<MassAttackEffectHandler>();
             builder.RegisterEntryPoint<DeathHandler>();
+            builder.RegisterEntryPoint<ChangeTargetEffectHandler>();
+            builder.RegisterEntryPoint<PreAttackHandler>();
             
             
             builder.RegisterEntryPoint<AttackVisualHandler>();

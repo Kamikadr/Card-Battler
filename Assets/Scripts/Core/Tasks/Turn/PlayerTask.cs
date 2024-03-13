@@ -12,14 +12,16 @@ namespace Core.Tasks
         private readonly EventBus _eventBus;
         private readonly HeroButtonListener _heroListeners;
         private readonly IHeroListenable _currentHero;
+        private readonly TargetProvider _targetProvider;
         private Team _currentHeroTeam;
 
         public PlayerTask(EventBus eventBus, HeroButtonListener heroListeners,
-            IHeroListenable currentHero)
+            IHeroListenable currentHero, TargetProvider targetProvider)
         {
             _eventBus = eventBus;
             _heroListeners = heroListeners;
             _currentHero = currentHero;
+            _targetProvider = targetProvider;
         }
 
         protected override UniTask OnRun()
@@ -39,6 +41,7 @@ namespace Core.Tasks
             }
             
             var targetContainer = new HeroContainer{ Value = target };
+            _targetProvider.HeroContainer = targetContainer;
             _eventBus.RaiseEvent(new PreAttackEvent(_currentHero, targetContainer));
             _eventBus.RaiseEvent(new AttackEvent(_currentHero, targetContainer));
             _eventBus.RaiseEvent(new BackAttackEvent(targetContainer, _currentHero));
@@ -48,6 +51,7 @@ namespace Core.Tasks
         protected override void OnFinished()
         {
             _heroListeners.OnEntityClick -= OnEnemyHeroChoose;
+            _targetProvider.HeroContainer = null;
         }
     }
 }

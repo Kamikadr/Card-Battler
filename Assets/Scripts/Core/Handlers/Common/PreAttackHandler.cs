@@ -11,7 +11,11 @@ namespace Core.Handlers
 
         protected override void OnEventHandle(PreAttackEvent evt)
         {
-            
+            var preAttackEffects = evt.Source.Value.GetEffects<PreAttackEffect>();
+            foreach (var effect in preAttackEffects)
+            {
+                EventBus.RaiseEvent(effect);
+            }
         }
     }
 }
