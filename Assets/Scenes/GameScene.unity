@@ -246,13 +246,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 55013092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Script: {fileID: 11500000, guid: 6db0641b47224853a2fd8ca75ccd6dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 50
-  baseDamage: 1
+  baseHealth: 22
+  baseDamage: 6
   team: 0
-  abilityDamage: 0
 --- !u!1001 &165874627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -835,13 +834,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 366797204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Script: {fileID: 11500000, guid: c17b8dba02854197a7e8cda9542949db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 60
-  baseDamage: 2
+  baseHealth: 25
+  baseDamage: 4
   team: 1
-  abilityDamage: 0
+  healValue: 1
 --- !u!1 &478019543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
@@ -1469,13 +1468,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1263865773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Script: {fileID: 11500000, guid: e4ab131579db4aeeb28b4e5bead8096e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 50
-  baseDamage: 1
+  baseHealth: 32
+  baseDamage: 8
   team: 0
-  abilityDamage: 0
 --- !u!1 &1605780317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
@@ -1490,13 +1488,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1605780317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf491d055ef4c5689c6594332ab8017, type: 3}
+  m_Script: {fileID: 11500000, guid: d1941dc3096f4cad82fc3c31019f6b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 60
+  baseHealth: 50
   baseDamage: 2
   team: 1
-  abilityDamage: 0
 --- !u!1001 &1827189790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1626,8 +1623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114fc17899874a8cb78e30e91dd48fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 1
-  baseDamage: 1
+  baseHealth: 35
+  baseDamage: 7
   team: 1
   abilityDamage: 1
 --- !u!1 &1854234142
