@@ -3,9 +3,11 @@ using Core.Effects;
 using Core.Handlers;
 using Core.Handlers.Effects;
 using Core.Handlers.Visual;
+using Core.Handlers.Visual.Effects;
 using Core.Pipeline;
 using Core.Tasks;
 using Core.Tasks.Visual;
+using Core.Tasks.Visual.Effects;
 using UI;
 using VContainer.Unity;
 
@@ -67,6 +69,9 @@ namespace VContainer
             builder.RegisterEntryPoint<HealVisualHandler>();
             builder.RegisterEntryPoint<DealDamageVisualHandler>();
             builder.RegisterEntryPoint<ActivityHeroVisualHandler>();
+            builder.RegisterEntryPoint<DeathVisualHandler>();
+            builder.RegisterEntryPoint<EndTurnRandomHealEffectVisualHandler>();
+            builder.RegisterEntryPoint<MassAttackVisualHandler>();
         }
     }
 }

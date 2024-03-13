@@ -13,13 +13,19 @@ namespace Core
         [SerializeField] private int baseHealth;
         [SerializeField] private int baseDamage;
         [SerializeField] private Team team;
+        
+        [Header("Audio")]
+        [SerializeField] private  AudioClip[] startAudioClips;
+        [SerializeField] private AudioClip[] lowHealthAudioClip;
+        [SerializeField] private AudioClip[] abilityAudioClip;
+        [SerializeField] private AudioClip[] deathAudioClip;
 
         private void Initialize()
         {
             AddEntityComponent(new HealthComponent(baseHealth));
             AddEntityComponent(new DamageComponent(baseDamage));
             AddEntityComponent(new TeamComponent(team));
-            AddEntityComponent(new TeamComponent(team));
+            AddEntityComponent(new HeroAudioComponent(startAudioClips, lowHealthAudioClip, abilityAudioClip, deathAudioClip));
             AddEntityComponent(new HeroViewComponent(GetComponent<HeroView>()));
             
             AddEffect<AttackEffect>(new DamageEffect(this));

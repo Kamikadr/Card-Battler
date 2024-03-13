@@ -2,23 +2,26 @@
 
 namespace Core.Tasks.Visual
 {
-    public class HeroActivityVisualTask: BaseTask
+    public class HeroActivityVisualTask: BaseVisualTask
     {
-        private readonly HeroEntity _target;
         private readonly bool _isActive;
 
-        public HeroActivityVisualTask(HeroEntity target, bool isActive)
+        public HeroActivityVisualTask(HeroEntity target, bool isActive): base(target)
         {
-            _target = target;
             _isActive = isActive;
         }
 
-        protected override UniTask OnRun()
+        protected override async UniTask OnRun()
         {
-            var view = _target.GetEntityComponent<HeroViewComponent>();
-            view.Value.SetActive(_isActive);
+            sourceView.Value.SetActive(_isActive);
+            
+            if (_isActive)
+            {
+                var audio = source.GetEntityComponent<HeroAudioComponent>();
+                await AudioPlayer.Instance.PlaySoundAsync(audio.GetStartAudio());
+            }
+            
             Finish();
-            return UniTask.CompletedTask;
         }
     }
 }

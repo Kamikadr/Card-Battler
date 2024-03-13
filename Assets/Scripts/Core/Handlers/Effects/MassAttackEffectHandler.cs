@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core.Components;
 using Core.Effects.TakeDamage;
 using Core.Events;
 
@@ -22,7 +23,10 @@ namespace Core.Handlers.Effects
             heroes.Remove(evt.source);
             foreach (var hero in heroes)
             {
-                EventBus.RaiseEvent(new DealDamageEvent(evt.damage, hero));
+                if (!hero.TryGetEntityComponent<DeathComponent>(out _))
+                {
+                    EventBus.RaiseEvent(new DealDamageEvent(evt.damage, hero));
+                }
             }
         }
     }

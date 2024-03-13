@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 //Менять нельзя!
@@ -16,5 +17,11 @@ public sealed class AudioPlayer : MonoBehaviour
     public void PlaySound(AudioClip sound)
     {
         this.soundSource.PlayOneShot(sound);
+    }
+
+    public async UniTask PlaySoundAsync(AudioClip sound)
+    {
+        soundSource.PlayOneShot(sound);
+        await UniTask.WaitWhile(() => soundSource.isPlaying);
     }
 }

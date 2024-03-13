@@ -13,15 +13,19 @@ namespace Core.Tasks.Visual
             _target = target;
         }
 
-        protected override UniTask OnRun()
+        protected async override UniTask OnRun()
         {
             var healthComponent = _target.GetEntityComponent<HealthComponent>();
             var damageComponent = _target.GetEntityComponent<DamageComponent>();
             var heroView = _target.GetEntityComponent<HeroViewComponent>();
             
             heroView.Value.SetStats($"{damageComponent.Value} / {healthComponent.currentHealth}");
+            if (healthComponent.currentHealth < healthComponent.maxHealth * 0.2)
+            {
+                var audio = _target.GetEntityComponent<HeroAudioComponent>();
+                await AudioPlayer.Instance.PlaySoundAsync(audio.GetLowHealthAudio());
+            }
             Finish();
-            return UniTask.CompletedTask;
         }
     }
 }

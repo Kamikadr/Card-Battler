@@ -8,9 +8,11 @@ namespace Core.Tasks.Visual
         {
         }
         
-        protected override UniTask OnRun()
+        protected override async UniTask OnRun()
         {
-            return UniTask.CompletedTask;
+            var audio = source.GetEntityComponent<HeroAudioComponent>();
+            await AudioPlayer.Instance.PlaySoundAsync(audio.GetDeathAudio());
+            Finish();
         }
 
         
