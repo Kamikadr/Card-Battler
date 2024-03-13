@@ -1,4 +1,6 @@
-﻿using Core.Components;
+﻿using System.Linq;
+using Core.Components;
+using Core.Effects;
 using Core.Events;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -31,7 +33,7 @@ namespace Core.Tasks
         private void OnEnemyHeroChoose(HeroEntity target)
         {
             var targetTeam = target.GetEntityComponent<TeamComponent>();
-            if (targetTeam.value == _currentHeroTeam)
+            if (targetTeam.value == _currentHeroTeam || target.GetEffects<UntouchableEffect>().Any())
             {
                 return;
             }

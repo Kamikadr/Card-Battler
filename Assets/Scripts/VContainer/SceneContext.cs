@@ -59,6 +59,7 @@ namespace VContainer
             builder.RegisterEntryPoint<EndTurnRandomHealEffectHandler>();
             builder.RegisterEntryPoint<HealHandler>();
             builder.RegisterEntryPoint<MassAttackEffectHandler>();
+            builder.RegisterEntryPoint<DeathHandler>();
             
             
             builder.RegisterEntryPoint<AttackVisualHandler>();

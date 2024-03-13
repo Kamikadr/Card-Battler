@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Core.Effects;
 using Core.Effects.TakeDamage;
 using Core.Events;
@@ -23,7 +24,7 @@ namespace Core.Handlers
             else
             {
                 var health = evt.Target.GetEntityComponent<HealthComponent>();
-                health.currentHealth -= evt.Damage;
+                health.currentHealth = (int) MathF.Max(0, health.currentHealth - evt.Damage);
 
                 var effects = evt.Target.GetEffects<TakeDamageEffect>();
                 foreach (var effect in effects.ToArray())
